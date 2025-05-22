@@ -21,7 +21,7 @@ class ReportForm(QWidget):
         self.name_input = QLineEdit(self)
         layout.addWidget(self.name_input)
 
-        self.date_label = QLabel("Well date:")
+        self.date_label = QLabel("Report date:")
         layout.addWidget(self.date_label)
         self.date_input = QLineEdit(self)
         layout.addWidget(self.date_input)
