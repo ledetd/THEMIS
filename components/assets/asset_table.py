@@ -31,16 +31,15 @@ class AssetTable(QWidget):
             self.asset_table.setItem(rows, 3, QTableWidgetItem(str(query.value(3))))
 
 
-
     def add_asset_item(self, asset_name, asset_description, asset_number, asset_location):
         row_position = self.asset_table.rowCount()
         self.asset_table.insertRow(row_position)
 
         self.asset_table.setItem(row_position, 0, QTableWidgetItem(asset_name))
         self.asset_table.setItem(row_position, 1, QTableWidgetItem(asset_description))
-        self.asset_table.setItem(row_position, 1, QTableWidgetItem(asset_number))
+        self.asset_table.setItem(row_position, 2, QTableWidgetItem(asset_number))
 
         asset_location = "Yes" if asset_location else "No"
-        self.asset_table.setItem(row_position, 2, QTableWidgetItem(asset_location))
+        self.asset_table.setItem(row_position, 3, QTableWidgetItem(asset_location))
 
 

@@ -64,7 +64,7 @@ class AssetForm(QWidget):
             if ok:
                 self.on_submit_callback(asset_name, asset_description, asset_number, asset_location)
 
-                QMessageBox.information(self, "Success", "Report Saved")
+                QMessageBox.information(self, "Success", "Asset Saved")
                 self.name_input.clear()
                 self.description_input.clear()
                 self.asset_number_input.clear()

@@ -1,5 +1,5 @@
 import sys
-from db import open_connection
+
 from PyQt6.QtWidgets import (
     QApplication,
     QWidget,
@@ -9,13 +9,14 @@ from PyQt6.QtWidgets import (
     QPushButton,
     QMainWindow
 )
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QWidget
+
+from db import open_connection
 
 
-from components.create_report import ReportForm
-from components.report_table import ReportTable
-from components.create_asset_list import AssetForm
-from components.asset_table import AssetTable
+from components.reports.create_report import ReportForm
+from components.reports.report_table import ReportTable
+from components.assets.create_asset_list import AssetForm
+from components.assets.asset_table import AssetTable
 
 class DailyReports(QWidget):
     def __init__(self):
@@ -29,6 +30,8 @@ class DailyReports(QWidget):
 
         self.report_table = ReportTable()
         layout.addWidget(self.report_table)
+
+
 
     def add_report_to_list(self, well_name, report_date, mpd_operational, rcd_operational, pipework_operational, day_supervisor_operational, night_supervisor_operational, day_operator_operational, night_operator_operational, supervisor_weather_delay, operator_weather_delay):
         self.report_table.add_report_item(well_name, report_date, mpd_operational, rcd_operational, pipework_operational, day_supervisor_operational, night_supervisor_operational, day_operator_operational, night_operator_operational, supervisor_weather_delay, operator_weather_delay)
@@ -70,7 +73,10 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(self.tabs)
 
+
+
 app = QApplication([])
+
 
 if not open_connection():
     sys.exit()
