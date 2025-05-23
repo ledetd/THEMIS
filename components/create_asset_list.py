@@ -38,12 +38,12 @@ class AssetForm(QWidget):
 
 
         self.submit_button = QPushButton('Submit', self)
-        self.submit_button.clicked.connect(self.submit_asset_data)
+        self.submit_button.clicked.connect(self.submit_asset)
         layout.addWidget(self.submit_button)
 
         self.setLayout(layout)
 
-    def submit_asset_data(self):
+    def submit_asset(self):
         asset_name =  self.name_input.text()
         asset_description =  self.description_input.text()
         asset_number = self.asset_number_input.text()
@@ -53,7 +53,7 @@ class AssetForm(QWidget):
 
         if asset_name:
             query = QSqlQuery()
-            query.prepare(f" INSERT INTO reports (asset_name, asset_description, asset_number, asset_location) VALUES (?,?,?,?)")
+            query.prepare(f" INSERT INTO inventory_asset_list (asset_name, asset_description, asset_number, on_location) VALUES (?,?,?,?)")
             query.addBindValue(asset_name)
             query.addBindValue(asset_description)
             query.addBindValue(asset_number)

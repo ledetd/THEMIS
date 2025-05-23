@@ -32,7 +32,7 @@ class AssetTable(QWidget):
 
 
 
-    def add_report_item(self, asset_name, asset_description, asset_number, asset_location):
+    def add_asset_item(self, asset_name, asset_description, asset_number, asset_location):
         row_position = self.asset_table.rowCount()
         self.asset_table.insertRow(row_position)
 
